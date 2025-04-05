@@ -1,0 +1,164 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.principal{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.principal h2 {
+    margin-bottom: 30px;
+    font-size: 50px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: rgb(235, 102, 7);
+    border-radius: 10px;
+    width: 600px;
+    text-align: center;
+    padding: 10px;
+    color: rgb(27, 26, 26);
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 600px;
+    height: 400px;
+    background-color: rgb(235, 102, 7);
+    padding: 20px;
+    gap:20px;
+    border-radius: 10px;
+}
+
+#form label{
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+    color: rgb(27, 26, 26);
+}
+
+#form textarea {
+    height: 200px;
+    width: 100%;
+    resize: none;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+#form textarea:hover{
+    background-color: rgb(190, 190, 190);
+}
+
+#form button {
+    width: 150px;
+    height: 60px;
+    border-radius: 10px;
+    background-color: rgb(244, 186, 145);
+    cursor: pointer;
+    font-weight: 800;
+}
+
+#form button:hover {
+    background-color: rgb(190, 190, 190);
+}
+
+#form #tituloOrdemServico{
+    font-size: 20px;
+}
+
+input {
+    border-radius: 10px;
+    width: 250px;
+    height: 60px;
+}
+
+input:hover{
+    background-color: rgb(190, 190, 190);
+}
+
+#idTratativa {
+    width: 170px;
+    justify-content: s;
+}
+
+select {
+    font-weight: 600;
+    border-radius: 10px;
+    margin: 5px;
+    width: 100px;
+    text-align: center;
+    cursor: pointer;
+}
+
+select:hover{
+    background-color: rgb(190, 190, 190);
+}
+
+.perguntas-objetivas {
+    display: flex;
+}
+
+.tipo-tratativa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(241, 158, 99);
+    margin: 5px;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.flexResponsivo {
+    display: flex;
+}
+
+.sim-nao{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(241, 158, 99);
+    margin: 5px;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 700px){
+
+    #form {
+        width: 400px;
+        height: 500px;
+    }
+
+    .principal h2 {
+        width: 400px;
+        font-size: 30px;
+    }
+
+    .perguntas-objetivas {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+
+    .flexResponsivo {
+        display: flex;
+    }
+
+    .sim-nao {
+        width: 31%;
+    }
+
+    .tipo-tratativa{
+        width: 50%;
+    }
+
+}

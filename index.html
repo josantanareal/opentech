@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="principal">
+        <h2>Registrar tratativa</h2>
+        <form id="form">
+            <label id="tituloOrdemServico">ORDEM DE SERVIÇO</label>
+            <input type="text" name="nome" required>
+            <div class="perguntas-objetivas">
+                <div class="tipo-tratativa">
+                    <label>TIPO DE<br>TRATATIVA</label>
+                    <select name="tipoTratativa" id="idTratativa">
+                        <option value="">N/A</option>
+                        <option value="Baixa de Documento">Baixa de Documento</option>
+                        <option value="Ajuste de Alvo">Ajuste de Alvo</option>
+                        <option value="Inserir Tratativa">Inserir Tratativa</option>
+                    </select>
+                </div>
+                <div class="flexResponsivo">
+                    <div class="sim-nao">
+                        <label>AJUSTE DE HORARIO?</label>
+                        <select name="horarioAjustado">
+                            <option value="">N/A</option>
+                            <option value="Sim">Sim</option>
+                            <option value="Não">Não</option>
+                        </select>
+                    </div>
+                    <div class="sim-nao">
+                        <label>ALVO CORRETO?</label>
+                        <select name="alvoCorreto">
+                            <option value="">N/A</option>
+                            <option value="Sim">Sim</option>
+                            <option value="Não">Não</option>
+                        </select>
+                    </div>
+                    <div class="sim-nao">
+                        <label>ALVO AJUSTADO?</label>
+                        <select name="alvoAjustado">
+                            <option value="">N/A</option>
+                            <option value="Sim">Sim</option>
+                            <option value="Não">Não</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <label>OBSERVAÇÕES</label>
+            <textarea name="observacoes"></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+
+    <p id="mensagem" style="color: green; font-weight: bold; display: none;"></p>
+
+    <script>
+        document.getElementById("form").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const formData = new FormData(this);
+            const data = {};
+            formData.forEach((value, key) => { data[key] = value });
+
+            fetch("https://script.google.com/macros/s/AKfycbxxzPSPc1vYlKhNWiB_JMJJsWLZb87qzVKGyyhPi_Waxw7HADbZ2mq5Wfx6YC52a48J/exec", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: new URLSearchParams(data)
+            })
+            .then(response => response.json()) 
+            .then(data => {
+                if (data.sucesso) { 
+                    window.location.href = "novo-formulario.html"; // Redireciona após envio
+                } else {
+                    throw new Error(data.mensagem);
+                }
+            })
+            .catch(error => {
+                document.getElementById("mensagem").innerText = "Erro: " + error.message;
+                document.getElementById("mensagem").style.color = "red";
+                document.getElementById("mensagem").style.display = "block";
+                console.error("Erro:", error);
+            });
+        });
+    </script>
+</body>
+</html>
