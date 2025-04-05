@@ -4,6 +4,33 @@
     box-sizing: border-box;
 }
 
+.btn-voltar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+#voltarPagina{
+    width: 250px;
+    height: 50px;
+    background-color: rgb(244, 186, 145);
+    color: rgb(27, 26, 26);
+    font-size: 20px;
+    border-radius: 10px;
+    font-weight: 900;
+    cursor: pointer;
+    transition: .2s;
+}
+
+#voltarPagina:hover{
+    background-color: rgb(235, 102, 7);
+    width: 270px;
+    height: 70px;
+    font-size: 21px;
+}
+
 .principal{
     display: flex;
     flex-direction: column;
